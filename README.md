@@ -26,31 +26,3 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
-
-blog-angular/
-├── src/
-│   ├── app/
-│   │   ├── components/
-│   │   │   ├── navbar/
-│   │   │   ├── home/
-│   │   │   ├── post-list/
-│   │   │   ├── post-detail/
-│   │   │   ├── post-form/
-│   │   │   ├── login/
-│   │   │   └── comment-section/
-│   │   ├── models/
-│   │   │   ├── post.model.ts
-│   │   │   ├── user.model.ts
-│   │   │   └── comment.model.ts
-│   │   ├── services/
-│   │   │   ├── post.service.ts
-│   │   │   ├── auth.service.ts
-│   │   │   └── comment.service.ts
-│   │   └── shared/
-│   │       ├── pipes/
-│   │       └── directives/
-│   ├── assets/
-│   │   └── images/
-│   └── environments/
-├── db.json           # Pour JSON Server
-└── (autres fichiers Angular standard)
