@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <!-- Hero Section -->
+  <div class="row mb-5 slide-up">
+    <div class="col-md-12 text-center">
+      <h1 class="display-4 fw-bold">Welcome to <span class="text-primary">Angular</span>Blog</h1>
+      <p class="lead mt-3 mb-4">Discover the latest insights, tutorials, and news about web development</p>
+      <a routerLink="/posts" class="btn btn-primary btn-lg me-2">Browse Articles</a>
+      <a routerLink="/login" class="btn btn-outline-secondary btn-lg">Login</a>
+    </div>
+  </div>
+
+  <!-- Featured Posts -->
+  <h2 class="mb-4 border-bottom pb-2">Latest Articles</h2>
+  <div *ngIf="loading" class="text-center">
+    <div class="loader"></div>
+  </div>
+  
+  <div *ngIf="!loading" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mb-5">
+    <div *ngFor="let post of recentPosts" class="col fade-in">
+      <div class="card h-100 post-card">
+        <img [src]="post.imageUrl" class="card-img-top" alt="{{ post.title }}">
+        <div class="card-body">
+          <span class="post-category">{{ post.category }}</span>
+          <h5 class="card-title">{{ post.title }}</h5>
+          <p class="card-text text-truncate-3">{{ post.content }}</p>
+        </div>
+        <div class="card-footer bg-transparent border-top-0 d-flex justify-content-between align-items-center">
+          <small class="text-muted">{{ post.createdAt | date }}</small>
+          <a [routerLink]="['/post', post.id]" class="btn btn-sm btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
+  <h2 class="mb-4 border-bottom pb-2">Popular Categories</h2>
+  <div class="row mb-5">
+    <div class="col-md-3 col-sm-6 mb-4" *ngFor="let category of popularCategories">
+      <div class="card text-center h-100 slide-up">
+        <div class="card-body">
+          <h5 class="card-title">{{ category }}</h5>
+          <a [routerLink]="['/category', category]" class="btn btn-outline-primary mt-2">View Articles</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,110 @@
+{
+  "posts": [
+    {
+      "id": 2,
+      "title": "CSS Tips for Modern Web Design",
+      "content": "Modern web design requires understanding of advanced CSS techniques. In this article, we'll explore some essential CSS tips...",
+      "imageUrl": "https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
+      "category": "CSS",
+      "authorId": 2,
+      "createdAt": "2023-12-20T10:30:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "TypeScript Best Practices",
+      "content": "TypeScript has become the standard for large-scale JavaScript applications. Here are some best practices to follow...",
+      "imageUrl": "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
+      "category": "TypeScript",
+      "authorId": 1,
+      "createdAt": "2024-01-05T14:45:00.000Z"
+    },
+    {
+      "title": "Occaecat maxime enim",
+      "content": "Laudantium illo deb",
+      "imageUrl": "https://images.pexels.com/photos/11035471/pexels-photo-11035471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750",
+      "category": "CSS",
+      "authorId": 2,
+      "createdAt": "2025-04-25T10:01:21.894Z",
+      "id": 4
+    },
+    {
+      "title": "Quia ex laboris ea s",
+      "content": "Facere consequatur ",
+      "imageUrl": "https://www.byjoniz.cm",
+      "category": "TypeScript",
+      "authorId": 1,
+      "createdAt": "2025-04-25T10:55:20.134Z",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 3,
+      "postId": 2,
+      "userId": 1,
+      "content": "These CSS tips are fantastic! I've implemented them in my project.",
+      "createdAt": "2023-12-21T15:10:00.000Z"
+    },
+    {
+      "postId": 4,
+      "userId": 2,
+      "content": "re",
+      "createdAt": "2025-04-25T10:17:57.181Z",
+      "id": 4
+    },
+    {
+      "postId": 5,
+      "userId": 1,
+      "content": "e&eaz",
+      "createdAt": "2025-04-25T10:55:24.365Z",
+      "id": 5
+    },
+    {
+      "postId": 5,
+      "userId": 2,
+      "content": "zfsdfdsf",
+      "createdAt": "2025-04-26T10:20:38.648Z",
+      "id": 6
+    },
+    {
+      "postId": 4,
+      "userId": 2,
+      "content": "geheh",
+      "createdAt": "2025-04-26T10:20:49.291Z",
+      "id": 7
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "admin",
+      "email": "admin@blog.com",
+      "password": "admin123",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "username": "alice",
+      "email": "alice@example.com",
+      "password": "alice123",
+      "role": "author"
+    },
+    {
+      "id": 3,
+      "username": "bob",
+      "email": "bob@example.com",
+      "password": "bob123",
+      "role": "author"
+    }
+  ],
+  "categories": [
+    "Angular",
+    "React",
+    "Vue",
+    "JavaScript",
+    "TypeScript",
+    "CSS",
+    "HTML",
+    "Web Development"
+  ]
+}

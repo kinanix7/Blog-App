@@ -1,0 +1,48 @@
+<div class="container mt-4">
+  <div *ngIf="loading" class="text-center my-5">
+    <div class="loader"></div>
+  </div>
+  
+  <div *ngIf="!loading && post" class="fade-in">
+    <!-- Back button -->
+    <a routerLink="/posts" class="btn btn-sm btn-outline-secondary mb-3">
+      &larr; Back to Articles
+    </a>
+    
+    <!-- Post Header -->
+    <div class="card mb-4 border-0 bg-light">
+      <div class="card-body p-4 p-md-5">
+        <div class="post-category mb-2">{{ post.category }}</div>
+        <h1 class="card-title mb-3">{{ post.title }}</h1>
+        <div class="d-flex align-items-center text-muted mb-4">
+          <span>{{ post.createdAt | date:'mediumDate' }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Featured Image -->
+    <img [src]="post.imageUrl" class="img-fluid rounded mb-4 w-100" 
+         style="max-height: 500px; object-fit: cover;" [alt]="post.title">
+    
+    <!-- Post Content -->
+    <div class="card mb-4 border-0 shadow-sm">
+      <div class="card-body p-4">
+        <div class="post-content">
+          <p class="card-text">{{ post.content }}</p>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Comments Section -->
+    <div class="mt-5" *ngIf="post.id">
+      <h3 class="mb-4">Comments</h3>
+      <app-comment-section [postId]="post.id"></app-comment-section>
+    </div>
+  </div>
+  
+  <!-- Error Message -->
+  <div *ngIf="!loading && !post" class="alert alert-danger text-center my-5">
+    <p class="mb-3">Post not found!</p>
+    <a routerLink="/posts" class="btn btn-primary">Return to Articles</a>
+  </div>
+</div>

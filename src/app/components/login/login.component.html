@@ -1,0 +1,64 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-sm slide-up">
+        <div class="card-header bg-primary text-white text-center py-3">
+          <h4 class="mb-0">Login</h4>
+        </div>
+        
+        <div class="card-body p-4">
+          <div *ngIf="error" class="alert alert-danger" role="alert">
+            {{ error }}
+          </div>
+          
+          <form (ngSubmit)="login()" #loginForm="ngForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                name="email"
+                [(ngModel)]="email" 
+                required
+                [disabled]="isLoading"
+                placeholder="Enter your email"
+              >
+            </div>
+            
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                name="password"
+                [(ngModel)]="password" 
+                required
+                [disabled]="isLoading"
+                placeholder="Enter your password"
+              >
+            </div>
+            
+            <button 
+              type="submit" 
+              class="btn btn-primary w-100 py-2" 
+              [disabled]="!loginForm.form.valid || isLoading"
+            >
+              <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+              Login
+            </button>
+          </form>
+          
+          <div class="mt-4 text-center">
+            <p class="text-muted mb-0">Demo Users:</p>
+            <div class="d-flex justify-content-center gap-3 mt-2">
+              <button (click)="setDemoUser('admin')" class="btn btn-sm btn-outline-primary">Admin</button>
+              <button (click)="setDemoUser('author')" class="btn btn-sm btn-outline-secondary">Author</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

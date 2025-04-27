@@ -1,0 +1,59 @@
+<div class="comment-section">
+  <!-- New Comment Form -->
+  <div class="card mb-4" *ngIf="isAuthenticated">
+    <div class="card-body">
+      <h5 class="card-title">Add a Comment</h5>
+      <div class="mb-3">
+        <textarea 
+          class="form-control" 
+          rows="3" 
+          placeholder="Write your comment here..." 
+          [(ngModel)]="newCommentContent"
+          [disabled]="submitting"
+        ></textarea>
+      </div>
+      <button 
+        (click)="addComment()" 
+        class="btn btn-primary" 
+        [disabled]="!newCommentContent.trim() || submitting"
+      >
+        <span *ngIf="submitting" class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
+        Submit Comment
+      </button>
+    </div>
+  </div>
+  
+  <!-- Login to Comment -->
+  <div class="alert alert-info mb-4" *ngIf="!isAuthenticated">
+    <a routerLink="/login">Log in</a> to add a comment.
+  </div>
+  
+  <!-- Comments List -->
+  <div *ngIf="loading" class="text-center my-3">
+    <div class="loader"></div>
+  </div>
+  
+  <div *ngIf="!loading && comments.length === 0" class="text-center my-4">
+    <p class="text-muted">No comments yet. Be the first to comment!</p>
+  </div>
+  
+  <div *ngIf="!loading && comments.length > 0">
+    <div class="comment slide-up" *ngFor="let comment of comments">
+      <div class="d-flex justify-content-between">
+        <div class="comment-meta mb-2">
+          User #{{ comment.userId }} • {{ comment.createdAt | date:'medium' }}
+        </div>
+        <button 
+          *ngIf="canDeleteComment(comment)" 
+          (click)="deleteComment(comment.id!)" 
+          class="btn btn-sm text-danger"
+          [disabled]="deleting"
+        >
+          Delete
+        </button>
+      </div>
+      <div class="comment-content">{{ comment.content }}</div>
+      <hr>
+    </div>
+  </div>
+</div>

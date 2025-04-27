@@ -1,0 +1,97 @@
+<div class="container mt-4">
+  <div class="card shadow-sm">
+    <div class="card-header bg-primary text-white">
+      <h2 class="mb-0">{{ isEditMode ? 'Edit Post' : 'Create New Post' }}</h2>
+    </div>
+    
+    <div class="card-body p-4">
+      <div *ngIf="error" class="alert alert-danger mb-4">
+        {{ error }}
+      </div>
+      
+      <form (ngSubmit)="savePost()" #postForm="ngForm">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input 
+            type="text" 
+            class="form-control" 
+            id="title" 
+            name="title"
+            [(ngModel)]="post.title" 
+            required
+            [disabled]="isLoading"
+            placeholder="Enter post title"
+          >
+        </div>
+        
+        <div class="mb-3">
+          <label for="category" class="form-label">Category</label>
+          <select 
+            class="form-select" 
+            id="category" 
+            name="category"
+            [(ngModel)]="post.category" 
+            required
+            [disabled]="isLoading"
+          >
+            <option value="" disabled>Select a category</option>
+            <option *ngFor="let category of categories" [value]="category">
+              {{ category }}
+            </option>
+          </select>
+        </div>
+        
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Image URL</label>
+          <input 
+            type="url" 
+            class="form-control" 
+            id="imageUrl" 
+            name="imageUrl"
+            [(ngModel)]="post.imageUrl" 
+            required
+            [disabled]="isLoading"
+            placeholder="Enter image URL"
+          >
+          <small class="form-text text-muted">
+            Enter a valid image URL (e.g., https://example.com/image.jpg)
+          </small>
+        </div>
+        
+        <div class="mb-3">
+          <label for="content" class="form-label">Content</label>
+          <textarea 
+            class="form-control" 
+            id="content" 
+            name="content"
+            [(ngModel)]="post.content" 
+            required
+            [disabled]="isLoading"
+            rows="10"
+            placeholder="Write your post content here..."
+          ></textarea>
+        </div>
+        
+        <div class="d-flex justify-content-between mt-4">
+          <button 
+            type="button" 
+            class="btn btn-outline-secondary" 
+            (click)="cancel()"
+            [disabled]="isLoading"
+          >
+            Cancel
+          </button>
+          
+          <button 
+            type="submit" 
+            class="btn btn-primary" 
+            [disabled]="!postForm.form.valid || isLoading"
+          >
+            <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+            {{ isEditMode ? 'Update' : 'Publish' }} Post
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
