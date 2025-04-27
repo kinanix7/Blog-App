@@ -37,25 +37,21 @@ export class PostFormComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute
   ) {
-    // Check if user is admin
     this.isAdmin = this.authService.hasRole('admin');
   }
 
   ngOnInit(): void {
     this.loadCategories();
     
-    // Check if user is logged in
     if (!this.authService.isAuthenticated()) {
       this.router.navigate(['/login']);
       return;
     }
     
-    // Set current user as author
     if (this.authService.currentUser) {
       this.post.authorId = this.authService.currentUser.id || 0;
     }
     
-    // Check if we're in edit mode
     this.route.paramMap.subscribe(params => {
       const postId = params.get('id');
       if (postId) {
@@ -82,9 +78,7 @@ export class PostFormComponent implements OnInit {
     this.postService.getPostById(id).subscribe({
       next: (post) => {
         this.post = post;
-        
-        // Check if user is authorized to edit this post
-        // Allow admin to edit any post
+     
         if (post.authorId !== this.authService.currentUser?.id && 
             !this.isAdmin) {
           this.router.navigate(['/dashboard']);
@@ -105,17 +99,14 @@ export class PostFormComponent implements OnInit {
     this.isLoading = true;
     this.error = '';
     
-    // Set creation date for new posts
     if (!this.isEditMode) {
       this.post.createdAt = new Date().toISOString();
       
-      // Ensure authorId is set correctly
       if (this.authService.currentUser) {
         this.post.authorId = this.authService.currentUser.id || 0;
       }
     }
     
-    // Validate post data before saving
     if (!this.post.title || !this.post.content || !this.post.category) {
       this.error = 'Please fill in all required fields.';
       this.isLoading = false;

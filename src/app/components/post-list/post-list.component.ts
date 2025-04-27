@@ -19,11 +19,9 @@ export class PostListComponent implements OnInit {
   categories: string[] = [];
   loading = true;
   
-  // Filtering and search
   searchQuery = '';
   selectedCategory = '';
   
-  // Pagination
   currentPage = 1;
   pageSize = 6;
   totalPages = 1;
@@ -75,12 +73,11 @@ export class PostListComponent implements OnInit {
   applyFilters(): void {
     let result = [...this.posts];
     
-    // Apply category filter
     if (this.selectedCategory) {
       result = result.filter(post => post.category === this.selectedCategory);
     }
     
-    // Apply search filter
+    //  search 
     if (this.searchQuery.trim()) {
       const query = this.searchQuery.toLowerCase();
       result = result.filter(post => 
@@ -89,13 +86,10 @@ export class PostListComponent implements OnInit {
       );
     }
     
-    // Sort by date (newest first)
     result.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-    
-    // Calculate pagination
+
     this.totalPages = Math.ceil(result.length / this.pageSize);
     
-    // Apply pagination
     const startIndex = (this.currentPage - 1) * this.pageSize;
     this.filteredPosts = result.slice(startIndex, startIndex + this.pageSize);
   }

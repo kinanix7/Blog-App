@@ -16,12 +16,11 @@
     </div>
   </div>
   
-  <!-- Loading Indicator -->
+  <!-- Loading  -->
   <div *ngIf="loading" class="text-center my-5">
     <div class="loader"></div>
   </div>
   
-  <!-- Posts Table -->
   <div class="card shadow-sm fade-in" *ngIf="!loading">
     <div class="card-body p-0">
       <div class="table-responsive">
@@ -65,13 +64,11 @@
     </div>
   </div>
   
-  <!-- No Posts Message -->
   <div *ngIf="!loading && userPosts.length === 0" class="text-center my-5 p-5 bg-light rounded slide-up">
     <p class="mb-3">You haven't created any posts yet.</p>
     <a routerLink="/post/new" class="btn btn-primary">Create Your First Post</a>
   </div>
   
-  <!-- Delete Confirmation Modal -->
   <div *ngIf="postToDelete" class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">

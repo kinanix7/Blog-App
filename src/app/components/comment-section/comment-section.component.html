@@ -1,5 +1,4 @@
 <div class="comment-section">
-  <!-- New Comment Form -->
   <div class="card mb-4" *ngIf="isAuthenticated">
     <div class="card-body">
       <h5 class="card-title">Add a Comment</h5>
@@ -23,12 +22,10 @@
     </div>
   </div>
   
-  <!-- Login to Comment -->
   <div class="alert alert-info mb-4" *ngIf="!isAuthenticated">
     <a routerLink="/login">Log in</a> to add a comment.
   </div>
   
-  <!-- Comments List -->
   <div *ngIf="loading" class="text-center my-3">
     <div class="loader"></div>
   </div>

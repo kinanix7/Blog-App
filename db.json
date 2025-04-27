@@ -78,14 +78,14 @@
     {
       "id": 1,
       "username": "admin",
-      "email": "admin@blog.com",
+      "email": "Youness@blog.com",
       "password": "admin123",
       "role": "admin"
     },
     {
       "id": 2,
       "username": "alice",
-      "email": "alice@example.com",
+      "email": "bouazzaoui@example.com",
       "password": "alice123",
       "role": "author"
     },

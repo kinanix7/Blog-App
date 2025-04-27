@@ -38,7 +38,6 @@ export class DashboardComponent implements OnInit {
       return;
     }
     
-    // Always load all posts for admin
     if (this.isAdmin) {
       this.postService.getAllPosts().subscribe({
         next: (posts) => {
@@ -53,7 +52,6 @@ export class DashboardComponent implements OnInit {
         }
       });
     } else {
-      // Load only user's posts for authors
       const userId = this.authService.currentUser.id!;
       this.postService.getPostsByAuthor(userId).subscribe({
         next: (posts) => {

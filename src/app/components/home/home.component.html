@@ -1,5 +1,4 @@
 <div class="container mt-4">
-  <!-- Hero Section -->
   <div class="row mb-5 slide-up">
     <div class="col-md-12 text-center">
       <h1 class="display-4 fw-bold">Welcome to <span class="text-primary">Angular</span>Blog</h1>
@@ -9,7 +8,6 @@
     </div>
   </div>
 
-  <!-- Featured Posts -->
   <h2 class="mb-4 border-bottom pb-2">Latest Articles</h2>
   <div *ngIf="loading" class="text-center">
     <div class="loader"></div>
@@ -32,7 +30,6 @@
     </div>
   </div>
 
-  <!-- Categories Section -->
   <h2 class="mb-4 border-bottom pb-2">Popular Categories</h2>
   <div class="row mb-5">
     <div class="col-md-3 col-sm-6 mb-4" *ngFor="let category of popularCategories">

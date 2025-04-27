@@ -94,10 +94,8 @@ export class CommentSectionComponent implements OnInit {
     const currentUser = this.authService.currentUser;
     if (!currentUser) return false;
     
-    // Allow admin to delete any comment
     if (currentUser.role === 'admin') return true;
     
-    // Allow author to delete their own comments
     return comment.userId === currentUser.id;
   }
 }

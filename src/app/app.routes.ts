@@ -10,7 +10,6 @@ import { AuthGuard } from './guards/auth.guard';
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'posts', component: PostListComponent },
-  // Fixed route order - specific routes before parameterized routes
   { path: 'post/new', component: PostFormComponent, canActivate: [AuthGuard] },
   { path: 'post/edit/:id', component: PostFormComponent, canActivate: [AuthGuard] },
   { path: 'post/:id', component: PostDetailComponent },

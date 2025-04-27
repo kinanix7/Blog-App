@@ -40,10 +40,10 @@ export class LoginComponent {
 
   setDemoUser(type: 'admin' | 'author'): void {
     if (type === 'admin') {
-      this.email = 'admin@blog.com';
+      this.email = 'Youness@blog.com';
       this.password = 'admin123';
     } else {
-      this.email = 'alice@example.com';
+      this.email = 'bouazzaoui@example.com';
       this.password = 'alice123';
     }
   }

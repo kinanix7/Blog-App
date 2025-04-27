@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe({
       next: (posts) => {
-        // Sort by date and take the most recent posts
         this.recentPosts = posts
           .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
           .slice(0, 6);

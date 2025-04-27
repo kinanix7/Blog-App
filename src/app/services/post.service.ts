@@ -38,7 +38,6 @@ export class PostService {
   }
 
   createPost(post: Post): Observable<Post> {
-    // Ensure post has all required fields before sending to server
     if (!post.title || !post.content || !post.category || !post.authorId) {
       return throwError(() => new Error('Post is missing required fields'));
     }
@@ -65,10 +64,9 @@ export class PostService {
     let errorMessage = 'An unknown error occurred';
     
     if (error.error instanceof ErrorEvent) {
-      // Client-side error
       errorMessage = `Error: ${error.error.message}`;
     } else {
-      // Server-side error
+      
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     
